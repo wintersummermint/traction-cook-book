@@ -2,21 +2,28 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
 } from 'react-router-dom';
-import { Row } from 'react-materialize';
 
 import SideBar from './components/sidebar';
 import Home from './components/home';
+import Edit from './components/edit';
+import Saved from './components/saved';
+import AddNew from './components/addnew';
 
 export const renderApp = () => (
   <Router>
-  	<div>
-      <Row>
-    		<SideBar>
-    			{/* Sub routes of the navbar goes here? or use `match` pattern on each sub component for nested */}
-    		</SideBar>
-    		<Route exact path="/" component={Home}/> {/* Route will render the component path */}
-  	   </Row>
+  	<div className="main">
+  		<SideBar>
+  			{/* Sub routes of the navbar goes here? or use `match` pattern on each sub component for nested */}
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/edit" component={Edit}/>
+          <Route path="/saved" component={Saved}/>
+          <Route path="/add-new" component={AddNew}/>
+        </Switch>
+  		</SideBar>
+  		<Route exact path="/" component={Home}/> {/* Route will render the component path */}
     </div>
   </Router>
 );

@@ -1,0 +1,49 @@
+/* This is a quick project haven't use any styling techniques. 
+	TODO :  Implement SCSS + Autoprefixer in the future.
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+
+.main {
+	min-height:100%;
+    width:100%;
+    position:relative;
+}
+
+/* left side bar */
+.side-bar {
+	color : #F7F6F6 ; /* Whitesmoke */
+	position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+    width: 10%;
+    float: left;
+	background: #5A4A4F;
+}
+
+/* right main content */
+.dynamic-container {
+	/* This makes the element grow and take all available space, not taken by the sidebar */
+    min-height: 500px;
+	width: 90%;
+	position: relative;
+	background-color: #F7F6F6;
+	float: right;
+	padding-left: 0px !important;
+}
+
+.cookbook-icon {
+	font-size: 45px;
+}
+
+.hr-below-icon {
+	border : 5px solid #957A84;
+}
