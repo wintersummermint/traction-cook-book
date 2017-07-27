@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { Button, Icon } from 'react-materialize';
+import { Row, Col } from 'react-materialize';
 
 class Home extends Component {
 	render() {
 		return (
 			<div className='dynamic-container'>
-				<Button waves='light'>
-					<Icon>thumb_up</Icon>
-				</Button>
+				<Row>
+					<Col s={12}>
+						<h3>My Cook Book</h3>
+					</Col>
+				</Row>
 			</div>
 		);
 	}
