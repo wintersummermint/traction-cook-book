@@ -72,6 +72,7 @@ const Recipes = [
 		    	"comment" : "I change things only slightly but still my go to dish is this meatloaf. It is fantastic."
 		    }
 		]
+	},
 	{
 		"id" : 3,
 	    "title": "Meat Loaf",
