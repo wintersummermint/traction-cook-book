@@ -30,6 +30,7 @@
 
 .hand-hover {
   cursor: pointer;
+  user-select: none;
 }
 
 /* Common helpers */
