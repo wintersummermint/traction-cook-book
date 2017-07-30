@@ -2,28 +2,11 @@ import React, { Component } from 'react';
 import { Row, Col, Icon } from 'react-materialize';
 
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
   Link
 } from 'react-router-dom';
 
-import Home from './components/home';
-import Edit from './components/edit';
-import Saved from './components/saved';
-import AddNew from './components/addnew';
-import { Recipes } from './data/recipes.js';
-
 class SideBar extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-        recipes : Recipes
-      }
-  }
-
+  
   render() {
     return (
           <div className="side-bar">

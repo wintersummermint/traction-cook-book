@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import SideBar from './SideBar';
-import Main from './Main';
 
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Link
+  Switch
 } from 'react-router-dom';
 
 import Home from './components/home';
