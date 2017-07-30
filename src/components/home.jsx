@@ -3,9 +3,8 @@ import { Row, Col } from 'react-materialize';
 import MenuContainer from './menu-container/menu-container';
 
 class Home extends Component {
-
-	
 	render() {
+		
 		return (
 			<div className='dynamic-container'>
 				<Row>
