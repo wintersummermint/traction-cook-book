@@ -20,7 +20,21 @@ const Recipes = [
 	    ],
 	    "saved" : true,
 	    "rating" : 4,
-	    "imageUrl": "http://i.imgur.com/FSfvsQl.jpg"
+	    "imageUrl": "http://i.imgur.com/FSfvsQl.jpg",
+	    "comments" : [
+		    {
+		    	"user" : "Brian Gardner",
+		    	"comment" : "Very Good, Yummy and Real Simple."
+		    },
+		    {
+		    	"user" : "Anthony Hopkins",
+		    	"comment" : "I made this for someone who said it was the best meat loaf she ever had! I love it!"
+		    },
+		    {
+		    	"user" : "Gino Hickman",
+		    	"comment" : "I change things only slightly but still my go to dish is this meatloaf. It is fantastic."
+		    }
+		]
 	},
 	{
 		"id" : 2,
@@ -43,8 +57,21 @@ const Recipes = [
 	    ],
 	    "saved" : true,
 	    "rating" : 3,
-	    "imageUrl": "http://www.seriouseats.com/images/2016/09/20160901-baked-beans-vicky-wasik-11.jpg"
-	},
+	    "imageUrl": "http://www.seriouseats.com/images/2016/09/20160901-baked-beans-vicky-wasik-11.jpg",
+	    "comments" : [
+		    {
+		    	"user" : "Brian Gardner",
+		    	"comment" : "Very Good, Yummy and Real Simple."
+		    },
+		    {
+		    	"user" : "Anthony Hopkins",
+		    	"comment" : "I made this for someone who said it was the best meat loaf she ever had! I love it!"
+		    },
+		    {
+		    	"user" : "Gino Hickman",
+		    	"comment" : "I change things only slightly but still my go to dish is this meatloaf. It is fantastic."
+		    }
+		]
 	{
 		"id" : 3,
 	    "title": "Meat Loaf",
@@ -66,7 +93,21 @@ const Recipes = [
 	    ],
 	    "saved" : false,
 	    "rating" : 5,
-	    "imageUrl": "http://everydaydishes.com/wp-content/uploads/2013/11/best-homemade-meatloaf-cherylstyle-cheryl-najafi-H.jpg"
+	    "imageUrl": "http://everydaydishes.com/wp-content/uploads/2013/11/best-homemade-meatloaf-cherylstyle-cheryl-najafi-H.jpg",
+	    "comments" : [
+		    {
+		    	"user" : "Brian Gardner",
+		    	"comment" : "Very Good, Yummy and Real Simple."
+		    },
+		    {
+		    	"user" : "Anthony Hopkins",
+		    	"comment" : "I made this for someone who said it was the best meat loaf she ever had! I love it!"
+		    },
+		    {
+		    	"user" : "Gino Hickman",
+		    	"comment" : "I change things only slightly but still my go to dish is this meatloaf. It is fantastic."
+		    }
+		]
 	}
 ]
 
