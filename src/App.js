@@ -18,9 +18,9 @@ import Main from './Main.js';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 const renderViewRecipe  = ({ match, staticContext }) => {
+
   const id = match.params.id;
-  console.log('recipes', Recipes);
-  const recipe = _.find(Recipes, (current) => current.id == id);
+  const recipe = _.find(Recipes, (current) => current.id == id); // Find matching id for recipe on url
   
   if (!recipe) {
     return <ViewRecipe recipe={recipe} /> /* <NotFoundPage staticContext={staticContext} /> */;
