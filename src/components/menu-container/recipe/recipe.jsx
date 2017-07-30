@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { Card, CardTitle } from 'react-materialize';
+import { Col, Card, CardTitle } from 'react-materialize';
+import Rating from './rating';
+import SaveStatus from './savestatus';
 
 class Recipe extends Component {
 	render() {
+
+		const recipe = this.props.recipe;
 		return (
-			<Card className='small'
-				header={<CardTitle image='https://react-materialize.github.io/img/office.jpg'>Card Title</CardTitle>}
-				actions={[<a href='/'>This is a Link</a>]}>
-				I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.
+			<Card className='small' header={<CardTitle image={recipe.imageUrl}>{recipe.title}</CardTitle>} >
+				<Col s={12} className="recipe-description">
+				{recipe.description}
+				</Col>
+
+				<Rating rating={recipe.rating} />
+
+				<SaveStatus saved={recipe.saved}/>
 			</Card>
 		);
 	}

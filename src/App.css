@@ -47,3 +47,17 @@ body {
 .hr-below-icon {
 	border : 5px solid #957A84;
 }
+
+.star {
+	color: #FFCC66;
+}
+
+.recipe-description {
+	height: 50px;
+	text-overflow: ellipsis;
+	overflow: hidden; /* Limit to 70 Charactes only so it will not be hidden */
+}
+
+.saved-icon {
+	color : #EF6161;
+}

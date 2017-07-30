@@ -10,7 +10,7 @@ class Home extends Component {
 				<Col s={12}>
 					<h3>My Cook Book</h3>
 
-					<MenuContainer />
+					<MenuContainer recipes={this.props.recipes}/>
 				</Col>
 			</Row>
 		);
