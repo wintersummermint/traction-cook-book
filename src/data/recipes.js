@@ -1,4 +1,4 @@
-export const Recipes = [
+const Recipes = [
 	{
 		"id" : 1,
 	    "title": "Vegetable Samosas",
@@ -69,3 +69,5 @@ export const Recipes = [
 	    "imageUrl": "http://everydaydishes.com/wp-content/uploads/2013/11/best-homemade-meatloaf-cherylstyle-cheryl-najafi-H.jpg"
 	}
 ]
+
+export default Recipes;

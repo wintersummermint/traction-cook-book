@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import React from 'react';
+import { Row, Col, Icon } from 'react-materialize';
+
+import { Link } from 'react-router-dom';
 
 import Home from './components/home';
 import Edit from './components/edit';
@@ -11,26 +9,57 @@ import Saved from './components/saved';
 import AddNew from './components/addnew';
 import { Recipes } from './data/recipes.js';
 
-
-class Main extends Component {
-
-	render() {
-		return (
-			<div></div>
-		);
-	}
-}
+export const Main = props => (
+	<div className="main">
+		<div className="side-bar">
+		  <Row>
+		    <Link to={`/`} >
+		    <Col s={12} className='center-align white-smoke m-t-30'>
+		      <Icon className="white-smoke cookbook-icon hand-hover">restaurant_menu</Icon>
+		    </Col>
+		    </Link>
+		  </Row>
+		  <Row>
+		    <hr className="hr-below-icon"/>
+		  </Row>
+		  <Row>
+		    <Link to={`/`}  >
+		    <Col s={12} className='center-align white-smoke m-t-20 hand-hover'>
+		      <Icon className="white-smoke cookbook-icon">view_list</Icon>
+		      <p className="white-smoke m-b-0 m-t-0">Menu</p>
+		    </Col>
+		    </Link>
+		  </Row>
+		  <Row>
+		    <Link to={`/edit`}  >
+		    <Col s={12} className='center-align white-smoke m-t-20 hand-hover'>
+		      <Icon className="white-smoke cookbook-icon">mode_edit</Icon>
+		      <p className="white-smoke m-b-0 m-t-0">Edit</p>
+		    </Col>
+		    </Link>
+		  </Row>
+		  <Row>
+		    <Link to={`/saved`}  >
+		    <Col s={12} className='center-align white-smoke m-t-20 hand-hover'>
+		      <Icon className="white-smoke cookbook-icon">bookmark_border</Icon>
+		      <p className="white-smoke m-b-0 m-t-0">Saved</p>
+		    </Col>
+		    </Link>
+		  </Row>
+		  <Row>
+		    <Link to={`/add-new`}  >
+		    <Col s={12} className='center-align white-smoke m-t-20 hand-hover'>
+		      <Icon className="white-smoke cookbook-icon">add_circle_outline</Icon>
+		      <p className="white-smoke m-b-0 m-t-0">Add New</p>
+		    </Col>
+		    </Link>
+		  </Row>
+		</div>
+		<div className="dynamic-container">
+			{props.children}
+		</div>
+	</div>
+);
 
 export default Main;
 
-/* Notes :
-	On React Router v4 Router : <Router> may have only one child element
-	so it needs to be enclosed on div
-
-  Props can be passed down through render prop on Route : <Route exact path="/" render={() => <Home recipes={this.state.recipes} /> } />
-
-	Sidebar will render on left 
-	and Home on right as default in path `/`
-
-  
-*/
