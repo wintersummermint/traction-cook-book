@@ -54,7 +54,7 @@ body {
 }
 
 .recipe-description {
-	height: 50px;
+	height: 70px;
 	text-overflow: ellipsis;
 	color : #666666;
 	overflow: hidden; /* Limit to 70 Charactes only so it will not be hidden */
@@ -64,14 +64,25 @@ body {
 	color : #EF6161;
 }
 
-.recipe-card {
+ 
+.recipe-card-title {
 	cursor: pointer;
+	color: #666666 ;
+	text-decoration: none;
 }
 
+.recipe-card-title:hover {
+	cursor: pointer;
+	color: #373838 ;
+	border-bottom: #373838;
+	text-decoration: underline;
+}
+
+/*
 .recipe-card:hover {
 	-webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.3);
 	box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.3);
-}
+} */
 
 .thumbnail {
   position: relative;

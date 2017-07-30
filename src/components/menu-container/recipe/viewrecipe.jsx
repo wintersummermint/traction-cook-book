@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Icon } from 'react-materialize';
 import Rating from './rating';
+import uuidv4 from 'uuid/v4';
 
 class ViewRecipe extends Component {
 
@@ -16,12 +17,12 @@ class ViewRecipe extends Component {
 		let recipe = this.state.recipe;
 		let is_saved = recipe.saved ? <Icon className="saved-icon medium hand-hover">bookmark</Icon> : <Icon className="saved-icon medium hand-hover">bookmark_border</Icon>;
 		let ingredients = recipe.ingredients.map((ingredient)=> {
-			return <p>{`• ${ingredient}`}</p>;
+			return <p key={uuidv4()}>{`• ${ingredient}`}</p>;
 		});
 
 		let instructions = recipe.instructions.map((instruction,index)=> {
 
-			return <p>{`${index + 1}. ${instruction}`}</p>;
+			return <p key={uuidv4()}>{`${index + 1}. ${instruction}`}</p>;
 		});
 
 		return (

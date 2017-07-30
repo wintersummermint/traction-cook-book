@@ -14,17 +14,20 @@ class Recipe extends Component {
 		const recipe = this.props.recipe;
 		return (
 			<div>
-			<Link to={`/view-recipe/${recipe.id}`} >
-				<Card className='small recipe-card' header={<CardTitle image={recipe.imageUrl}>{recipe.title}</CardTitle>}>
+				<Card className='medium recipe-card' header={<CardTitle image={recipe.imageUrl}></CardTitle>}>
 					<Col s={12} className="recipe-description">
-					{recipe.description}
+					<Link to={`/view-recipe/${recipe.id}`} className="recipe-card-title">
+						<b className="semi-black">{recipe.title}</b>
+					</Link>
+					<p>{recipe.description}</p>
+					
 					</Col>
 
 					<Rating rating={recipe.rating}/>
 
 					<SaveStatus saved={recipe.saved}/>
 				</Card>
-			</Link>
+			
 			<Router history={newHistory}>
 				<Switch>
 				<Route exact path="/view-recipe" render={() => <ViewRecipe recipes={recipe} /> } />
