@@ -3,11 +3,14 @@ import { Router, Route, Switch, Link } from 'react-router-dom';
 import { Col, Card, CardTitle } from 'react-materialize';
 import Rating from './rating';
 import SaveStatus from './savestatus';
-import ViewRecipe from './viewrecipe';
 
 import createBrowserHistory from 'history/createBrowserHistory'
 
 class Recipe extends Component {
+
+	handleSaveRecipe(recipe_id) {
+		this.props.setHandleSaveRecipe(recipe_id);
+	}
 
 	render() {
 		const newHistory = createBrowserHistory();
@@ -23,16 +26,12 @@ class Recipe extends Component {
 					
 					</Col>
 
-					<Rating rating={recipe.rating}/>
-
-					<SaveStatus saved={recipe.saved}/>
+					<Rating rating={recipe.rating} />
+					<Col m={1} s={1}>
+						<SaveStatus saved={recipe.saved} onSaveRecipe={this.handleSaveRecipe.bind(this)} _id={recipe.id}/>
+					</Col>
+					
 				</Card>
-			
-			<Router history={newHistory}>
-				<Switch>
-				<Route exact path="/view-recipe" render={() => <ViewRecipe recipes={recipe} /> } />
-				</Switch>
-			</Router>
 			</div>
 		);
 	}

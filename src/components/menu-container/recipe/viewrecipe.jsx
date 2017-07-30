@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Icon } from 'react-materialize';
 import Rating from './rating';
 import uuidv4 from 'uuid/v4';
+import SaveStatus from './savestatus';
 
 class ViewRecipe extends Component {
 
@@ -12,6 +13,12 @@ class ViewRecipe extends Component {
 			recipe : props.recipe
 		}
 	}
+
+
+	handleSaveRecipe(recipe_id) {
+		this.props.setHandleSaveRecipe(recipe_id);
+	}
+
 	render() {
 
 		let recipe = this.state.recipe;
@@ -35,7 +42,9 @@ class ViewRecipe extends Component {
 					</div>
 				</Col>
 				<Col m={1}>
-					<div className="right">{is_saved}</div>
+					<div className="right">
+						<SaveStatus saved={recipe.saved} onSaveRecipe={this.handleSaveRecipe.bind(this)} _id={recipe.id}/>
+					</div>
 				</Col>
 			</Row>
 			<Row>

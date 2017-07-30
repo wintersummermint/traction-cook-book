@@ -3,21 +3,23 @@ import { Icon } from 'react-materialize';
 import { Col } from 'react-materialize';
 
 class SaveStatus extends Component {
+	constructor(props) {
+		super(props);
+		
+	}
 
-	saveRecipe() {
-		console.log(this.props.saved);
-		this.setState({ saved : !this.props.saved ? true : false });
-		console.log(this.state.saved);
+	saveRecipe(recipe_id) {
+		this.props.onSaveRecipe(recipe_id);
 	}
 
 	render() {
-
-		let is_saved = this.props.saved ? <Icon className="saved-icon" onClick={this.saveRecipe.bind(this)}>bookmark</Icon> : <Icon className="saved-icon" onClick={this.saveRecipe.bind(this)}>bookmark_border</Icon>;
+		
+		let is_saved = this.props.saved ? <Icon className="saved-icon">bookmark</Icon> : <Icon className="saved-icon">bookmark_border</Icon>;
 
 		return (
-			<Col s={1} className="m-t-10 m-b-10 hand-hover">
+			<div className="hand-hover" onClick={this.saveRecipe.bind(this, this.props._id)}>
 				{is_saved}
-			</Col>
+			</div>
 		);
 	}
 }

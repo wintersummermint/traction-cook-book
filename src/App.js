@@ -17,17 +17,17 @@ import Recipes from './data/recipes.js';
 import Main from './Main.js';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-const renderViewRecipe  = ({ match, staticContext }) => {
+// const renderViewRecipe  = ({ match, staticContext }) => {
 
-  const id = match.params.id;
-  const recipe = _.find(Recipes, (current) => current.id == id); // Find matching id for recipe on url
-  
-  if (!recipe) {
-    return <ViewRecipe recipe={recipe} /> /* <NotFoundPage staticContext={staticContext} /> */;
-  }
+//   const id = match.params.id;
+//   const recipe = _.find(Recipes, (current) => current.id == id); // Find matching id for recipe on url
 
-  return <ViewRecipe recipe={recipe} />;
-};
+//   if (!recipe) {
+//     return <ViewRecipe recipe={recipe} setHandleSaveRecipe={this.renderhandleSaveRecipe}/> /* <NotFoundPage staticContext={staticContext} /> */;
+//   }
+
+//   return <ViewRecipe recipe={recipe} setHandleSaveRecipe={this.renderhandleSaveRecipe}/>;
+// };
 
 const newHistory = createBrowserHistory();
 
@@ -41,16 +41,41 @@ class RenderApp extends Component {
       }
   }
 
+  appSetHandleSaveRecipe(id) {
+    
+    let recipes = this.state.recipes.map((recipe)=>{
+
+      if (recipe.id == id) {
+        recipe.saved = (!recipe.saved ? true : false);
+      }
+
+      return recipe;
+    });
+
+    this.setState({ recipes });
+  }
+
   render() { 
     return (
       <Router history={newHistory}>
       <Main>
         <Switch>
-          <Route exact path="/" render={() => <Home recipes={this.state.recipes} /> } />
+          <Route exact path="/" render={() => <Home recipes={this.state.recipes} appHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)}/> } />
           <Route path="/edit" render={() => <Edit recipes={this.state.recipes} /> } />
           <Route path="/saved" render={() => <Saved recipes={this.state.recipes} /> } />
           <Route path="/add-new" render={() => <AddNew recipes={this.state.recipes} /> } />
-          <Route path="/view-recipe/:id" render={ renderViewRecipe } />
+          
+          <Route path="/view-recipe/:id" render={({ match, staticContext }) => {
+            const id = match.params.id;
+            const recipe = _.find(Recipes, (current) => current.id == id); // Find matching id for recipe on url
+
+            if (!recipe) {
+              return <ViewRecipe recipe={recipe}/> /* <NotFoundPage staticContext={staticContext} /> */;
+            }
+
+            return <ViewRecipe recipe={recipe} setHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)}/>;
+          }} />
+
         </Switch>
       </Main>
       </Router>
