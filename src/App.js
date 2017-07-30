@@ -31,12 +31,14 @@ class RenderApp extends Component {
         <Router>
           <div>
             <SideBar />
+            <div className="dynamic-container">
             <Switch>
                   <Route exact path="/" render={() => <Home recipes={this.state.recipes} /> } />
                   <Route path="/edit" render={() => <Edit recipes={this.state.recipes} /> } />
                   <Route path="/saved" render={() => <Saved recipes={this.state.recipes} /> } />
                   <Route path="/add-new" render={() => <AddNew recipes={this.state.recipes} /> } />
             </Switch>
+            </div>
           </div>
         </Router>
         
