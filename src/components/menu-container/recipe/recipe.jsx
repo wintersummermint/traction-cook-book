@@ -13,7 +13,7 @@ class Recipe extends Component {
 				{recipe.description}
 				</Col>
 
-				<Rating rating={recipe.rating} />
+				<Rating rating={recipe.rating}/>
 
 				<SaveStatus saved={recipe.saved}/>
 			</Card>

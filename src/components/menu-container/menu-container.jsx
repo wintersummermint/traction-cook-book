@@ -8,8 +8,8 @@ class MenuContainer extends Component {
 
 		const recipeList = this.props.recipes.map(recipe => {
 			return (
-				<Col s={12} m={4}>
-					<Recipe recipe={recipe} key={recipe.id} />
+				<Col s={12} m={4} key={recipe.id}>
+					<Recipe recipe={recipe} />
 				</Col>
 			)
 		})
