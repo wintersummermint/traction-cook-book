@@ -42,7 +42,7 @@ class RenderApp extends Component {
   }
 
   appSetHandleSaveRecipe(id) {
-    
+
     let recipes = this.state.recipes.map((recipe)=>{
 
       if (recipe.id == id) {
@@ -62,7 +62,7 @@ class RenderApp extends Component {
         <Switch>
           <Route exact path="/" render={() => <Home recipes={this.state.recipes} appHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)}/> } />
           <Route path="/edit" render={() => <Edit recipes={this.state.recipes} /> } />
-          <Route path="/saved" render={() => <Saved recipes={this.state.recipes} /> } />
+          <Route path="/saved" render={() => <Saved recipes={this.state.recipes} appHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)} /> } />
           <Route path="/add-new" render={() => <AddNew recipes={this.state.recipes} /> } />
           
           <Route path="/view-recipe/:id" render={({ match, staticContext }) => {
