@@ -28,7 +28,6 @@ class ViewRecipe extends Component {
 		});
 
 		let instructions = recipe.instructions.map((instruction,index)=> {
-
 			return <p key={uuidv4()}>{`${index + 1}. ${instruction}`}</p>;
 		});
 
