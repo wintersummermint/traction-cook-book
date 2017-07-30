@@ -55,6 +55,7 @@ body {
 .recipe-description {
 	height: 50px;
 	text-overflow: ellipsis;
+	color : #666666;
 	overflow: hidden; /* Limit to 70 Charactes only so it will not be hidden */
 }
 
