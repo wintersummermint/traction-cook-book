@@ -106,17 +106,33 @@ class AddNew extends Component {
 
 		this.setState({ newRecipe });
 
-		// TODO : validation of data
-		this.props.recipes.push(this.state.newRecipe);
-		console.log('this.props.recipes',this.props.recipes);
-		toast.success("Successfully Registered");
+		let validated = this.validateForms(newRecipe);
 
-		setTimeout(()=>{
-			push(`/`);
-		},4000);
+		if (validated) {
+			this.props.recipes.push(this.state.newRecipe);
+			console.log('this.props.recipes',this.props.recipes);
+			
+			// Redirect After successful save
+			setTimeout(()=>{
+				push(`/`);
+			},4000);
+		}
 
-		// Redirect After successful save
 		
+	}
+
+	validateForms(newRecipe) {
+		if (newRecipe && newRecipe.description == undefined || newRecipe.description == "" || newRecipe.description.length > 70) {
+			toast.error("Description should be less than 70 characters");
+			return false;
+		}
+
+		if (newRecipe && newRecipe == undefined || newRecipe.imageUrl.match(/\.(jpeg|jpg|gif|png)$/) == null) {
+			toast.error("Image URL is invalid");
+			return false;
+		}
+
+		return true;
 	}
 
 	render() {

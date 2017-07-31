@@ -48,8 +48,8 @@ class ViewRecipe extends Component {
 			</Row>
 			<Row>
 				<Col m={11}>
-					<div>
-					    <MediaBox className="center-align" src={recipe.imageUrl} width="650"/>
+					<div className="image-recipe">
+					    <MediaBox className="center-align" src={recipe.imageUrl} height="450"/>
 					</div>
 				</Col>	
 			</Row>
