@@ -101,8 +101,21 @@ body {
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
 }
-.thumbnail img.portrait {
-  width: 100%;
-  height: auto;
+
+.view-recipe-right {
+	position: relative;
+	top: 15px;
 }
 
+.view-recipe-right > .hand-hover > i {
+	font-size: 3rem;
+}
+
+.close-view-recipe > i {
+	font-size: 3em;
+	padding-right: 15px;
+}
+.close-view-recipe {
+	position: relative;
+	top: 15px;
+}

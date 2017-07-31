@@ -41,7 +41,7 @@ class ViewRecipe extends Component {
 					</div>
 				</Col>
 				<Col m={1}>
-					<div className="right">
+					<div className="view-recipe-right right">
 						<SaveStatus saved={recipe.saved} onSaveRecipe={this.handleSaveRecipe.bind(this)} _id={recipe.id}/>
 					</div>
 				</Col>
