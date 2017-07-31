@@ -63,7 +63,7 @@ class RenderApp extends Component {
           <Route exact path="/" render={() => <Home recipes={this.state.recipes} appHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)}/> } />
           <Route path="/edit" render={() => <Edit recipes={this.state.recipes} /> } />
           <Route path="/saved" render={() => <Saved recipes={this.state.recipes} appHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)} /> } />
-          <Route path="/add-new" render={() => <AddNew recipes={this.state.recipes} /> } />
+          <Route path="/add-new" render={() => <AddNew recipes={this.state.recipes} history={this.props.history}/> } />
           
           <Route path="/view-recipe/:id" render={({ match, staticContext }) => {
             const id = match.params.id;
