@@ -15,10 +15,34 @@ const InitialState = {
 }
 
 class AddNew extends Component {
+
+	componentWillMount() {
+		this.resetForm();
+		console.log('intial state', this.state);
+	}
 	constructor(props) {
 		super(props);
 		this.state = InitialState;
+		this.baseState = this.state;
 	}
+
+	resetForm() {
+	    this.setState({
+	        ingredients: []
+	    }, function() { // called by React after the state is updated
+	        this.setState({
+	          ingredients: []
+	        });
+	    });
+
+	    this.setState({
+	        instructions: []
+	    }, function() { // called by React after the state is updated
+	        this.setState({
+	          instructions: []
+	        });
+	    });
+	 }
 
 	recipeNameHandler(evt) {
 		let newRecipe = this.state.newRecipe;
@@ -39,8 +63,6 @@ class AddNew extends Component {
 		let imgPattern = new RegExp("/(https?:\/\/.*\.(?:png|jpg))/igm");
 		let imgUrl = evt.target.value;
 
-		console.log('imgPattern.test(imgUrl)', imgPattern.test(imgUrl));
-		
 		newRecipe.imageUrl = imgUrl;
 		this.setState({ newRecipe });
 
@@ -110,12 +132,26 @@ class AddNew extends Component {
 
 		if (validated) {
 			this.props.recipes.push(this.state.newRecipe);
-			console.log('this.props.recipes',this.props.recipes);
 			
+
+			toast.success('Recipe Added Succesfully!');
+
+			let self = this;
 			// Redirect After successful save
 			setTimeout(()=>{
-				push(`/`);
+				// Clear Array of Instuctions and Ingredients
+				self.setState({ ingredients : []}, ()=>{
+					self.setState({ instructions : []}, ()=>{
+						console.log('this.props.recipes',this.props.recipes);
+						console.log('this.states',this.state);
+						push(`/`);
+					});
+				});
+				
+				
 			},4000);
+
+			
 		}
 
 		
