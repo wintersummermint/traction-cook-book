@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon } from 'react-materialize';
+import { Row, Col, Icon, MediaBox } from 'react-materialize';
 import Rating from './rating';
 import uuidv4 from 'uuid/v4';
 import SaveStatus from './savestatus';
@@ -48,8 +48,8 @@ class ViewRecipe extends Component {
 			</Row>
 			<Row>
 				<Col m={11}>
-					<div className="thumbnail">
-					    <img src={recipe.imageUrl} alt="" />
+					<div>
+					    <MediaBox className="center-align" src={recipe.imageUrl} width="650"/>
 					</div>
 				</Col>	
 			</Row>

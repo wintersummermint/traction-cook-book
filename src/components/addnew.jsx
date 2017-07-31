@@ -34,15 +34,13 @@ class AddNew extends Component {
 
 	imageUrlHandler(evt) {
 		let newRecipe = this.state.newRecipe;
-		let imgPattern = new RegExp("^(https?|ftp)://.*(jpeg|png|gif|bmp)");
+		let imgPattern = new RegExp("/(https?:\/\/.*\.(?:png|jpg))/igm");
 		let imgUrl = evt.target.value;
 
-		if (imgPattern.test(imgUrl)) {
-			newRecipe.imageUrl = imgUrl;
-			this.setState({ newRecipe });
-		} else {
-			console.log('Error : Image URL invalid');
-		}
+		console.log('imgPattern.test(imgUrl)', imgPattern.test(imgUrl));
+		
+		newRecipe.imageUrl = imgUrl;
+		this.setState({ newRecipe });
 
 	}
 
@@ -96,6 +94,7 @@ class AddNew extends Component {
 	}
 
 	saveNewRecipe() {
+		const { history: { push } } = this.props;
 		let newRecipe = this.state.newRecipe;
 		newRecipe.ingredients = this.state.ingredients;
 		newRecipe.instructions = this.state.instructions;
@@ -108,11 +107,13 @@ class AddNew extends Component {
 		// TODO : validation of data
 		this.props.recipes.push(this.state.newRecipe);
 		console.log('this.props.recipes',this.props.recipes);
-		//this.props.history.push(`/view-recipe/${newRecipe.id}`);
 
+		// Redirect After successful save
+		push(`/view-recipe/${newRecipe.id}`);
 	}
 
 	render() {
+
 		const Ingredients = this.state.ingredients.map((ingredient)=>{
 			return <CollectionItem key={uuidv4()}>{ingredient}</CollectionItem>
 		});
@@ -190,4 +191,4 @@ class AddNew extends Component {
 	}
 }
 
-export default AddNew;
+export default withRouter(AddNew);
