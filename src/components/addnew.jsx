@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Input, Button } from 'react-materialize';
+import { Row, Col, Input, Button, Collection, CollectionItem } from 'react-materialize';
 import $ from 'jquery';
 
 class AddNew extends Component {
@@ -25,15 +25,54 @@ class AddNew extends Component {
 
 				<Row>
 					<Col m={12} s={12}>
-						<div className="p-l-15 p-r-15">
+						<div className="p-l-10 p-r-10">
 							<h5 className="semi-black"><small>Ingredients</small></h5>
 
 
 						</div>
 					</Col>
 					<Col m={12} s={12}>
-						<Input s={10} placeholder="Recipe Name" validate />
-						<Button className="btn-block inline col s2 m-t-10">Add</Button>
+						<Input s={10} placeholder="Add Ingredient" validate />
+						<Button className="btn-block inline col s2 m-t-10 bg-d-juan waves-effect waves-light">Add</Button>
+					</Col>
+
+					<Col m={12} s={12}>
+						<Collection>
+							<CollectionItem>Alvin</CollectionItem>
+							<CollectionItem>Alvin</CollectionItem>
+							<CollectionItem>Alvin</CollectionItem>
+							<CollectionItem>Alvin</CollectionItem>
+						</Collection>
+					</Col>
+				</Row>
+
+				<Row>
+					<Col m={12} s={12}>
+						<div className="p-l-10 p-r-10">
+							<h5 className="semi-black"><small>Instruction steps</small></h5>
+
+
+						</div>
+					</Col>
+					<Col m={12} s={12}>
+						<Input s={10} placeholder="Add Instruction" validate />
+						<Button className="btn-block inline col s2 m-t-10 bg-d-juan waves-effect waves-light">Add</Button>
+					</Col>
+
+					<Col m={12} s={12}>
+						<Collection>
+							<CollectionItem>Alvin</CollectionItem>
+							<CollectionItem>Alvin</CollectionItem>
+							<CollectionItem>Alvin</CollectionItem>
+							<CollectionItem>Alvin</CollectionItem>
+						</Collection>
+					</Col>
+				</Row>
+				<Row>
+					<Col m={12} s={12}>
+						<div className="right">
+							<Button className="inline m-t-10 bg-d-juan waves-effect waves-light">Save New Recipe</Button>
+						</div>
 					</Col>
 				</Row>
 			</div>

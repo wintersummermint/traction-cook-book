@@ -19,6 +19,10 @@
 .bg-d-juan {
   background-color : #5A4A4F ;
 }
+.bg-d-juan:hover, .bg-d-juan:focus, .bg-d-juan:active {
+  background-color : #262023 ;
+  border-color : #30282C ;
+}
 
 .bitter-sweet {
   color : #EF6161 ;
@@ -360,4 +364,8 @@
 .readable {
   line-height: 1.55;
   word-spacing: 1px;
+}
+
+.btn {
+  text-transform : none !important;
 }
