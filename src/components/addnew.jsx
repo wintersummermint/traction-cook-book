@@ -122,6 +122,12 @@ class AddNew extends Component {
 	}
 
 	validateForms(newRecipe) {
+
+		if (newRecipe && newRecipe.title == undefined || newRecipe && newRecipe.title == "") {
+			toast.error("Recipe Should have a name");
+			return false;
+		}
+
 		if (newRecipe && newRecipe.description == undefined || newRecipe.description == "" || newRecipe.description.length > 70) {
 			toast.error("Description should be less than 70 characters");
 			return false;
