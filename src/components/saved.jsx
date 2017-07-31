@@ -19,7 +19,7 @@ class Saved extends Component {
 			<Row className="m-t-20">
 				<Col s={12}>
 					<Col s={9}>
-						<h4 className="p-l-10 semi-black">Saved Recipes</h4>
+						<h4 className="p-l-10 my-pink">Saved Recipes</h4>
 					</Col>
 					<Col s={3}>
 						<Input placeholder="Search" s={12} />

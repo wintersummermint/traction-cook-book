@@ -35,7 +35,7 @@ class ViewRecipe extends Component {
 			<div>
 			<Row className="m-t-30">
 				<Col m={10}>
-					<h4 className="semi-black p-l-10">{recipe.title}</h4>
+					<h4 className="my-pink p-l-10">{recipe.title}</h4>
 					<div className="p-l-0">
 						<Rating rating={recipe.rating}/>
 					</div>
