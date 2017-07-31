@@ -124,7 +124,7 @@ class AddNew extends Component {
 	validateForms(newRecipe) {
 
 		if (newRecipe && newRecipe.title == undefined || newRecipe && newRecipe.title == "") {
-			toast.error("Recipe Should have a name");
+			toast.error("Recipe Should have a Name!");
 			return false;
 		}
 
@@ -133,8 +133,18 @@ class AddNew extends Component {
 			return false;
 		}
 
-		if (newRecipe && newRecipe == undefined || newRecipe.imageUrl.match(/\.(jpeg|jpg|gif|png)$/) == null) {
+		if (newRecipe && newRecipe.imageUrl == undefined || newRecipe && newRecipe.imageUrl.match(/\.(jpeg|jpg|gif|png)$/) == null) {
 			toast.error("Image URL is invalid");
+			return false;
+		}
+
+		if (newRecipe && newRecipe.ingredients == undefined || newRecipe && newRecipe.ingredients.length == 0) {
+			toast.error("Recipe should have Ingredients!");
+			return false;
+		}
+
+		if (newRecipe && newRecipe.instructions == undefined || newRecipe && newRecipe.instructions.length == 0) {
+			toast.error("Recipe should have Instructions!");
 			return false;
 		}
 
