@@ -3,6 +3,24 @@ import { Row, Col, Input, Button, Collection, CollectionItem } from 'react-mater
 import $ from 'jquery';
 
 class AddNew extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			newRecipe : {}
+		}
+	}
+
+	recipeNameHandler(evt) {
+		let newRecipe = this.state.newRecipe;
+		let title = evt.target.value;
+		if (title) newRecipe.title = title;
+		this.setState({ newRecipe });
+	}
+
+	saveNewRecipe() {
+		// TODO : validation of data
+		this.props.recipes.push(this.state.newRecipe);
+	}
 
 	render() {
 		console.log('recipes :', this.props.recipes);
@@ -14,7 +32,7 @@ class AddNew extends Component {
 				
 				<Row className="m-t-40">
 					<Col m={12} s={12}>
-						<Input s={12} placeholder="Recipe Name" validate />
+						<Input s={12} placeholder="Recipe Name" validate onChange={evt =>  this.recipeNameHandler(evt)} />
 					</Col>
 					<Col m={12} s={12}>
 						<div className="input-field col s12">
@@ -71,7 +89,7 @@ class AddNew extends Component {
 				<Row>
 					<Col m={12} s={12}>
 						<div className="right">
-							<Button className="inline m-t-10 bg-d-juan waves-effect waves-light">Save New Recipe</Button>
+							<Button className="inline m-t-10 bg-d-juan waves-effect waves-light" onClick={this.saveNewRecipe.bind(this)}>Save New Recipe</Button>
 						</div>
 					</Col>
 				</Row>
