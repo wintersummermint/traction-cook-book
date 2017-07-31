@@ -8,12 +8,23 @@
   color : #666666;
 }
 
+.bg-semi-black {
+  background-color: #666666;
+}
+
 .d-juan {
   color : #5A4A4F ;
 }
 
+.bg-d-juan {
+  background-color : #5A4A4F ;
+}
+
 .bitter-sweet {
   color : #EF6161 ;
+}
+.bg-bitter-sweet {
+  background-color : #EF6161 ;
 }
 
 .galley {
@@ -24,6 +35,14 @@
   color: #DE907F ;
 }
 
+.bg-my-pink {
+  background-color: #DE907F ;
+}
+
+.bg-pot-pourri {
+  background-color:  #EADED8;
+}
+
 .pot-pourri {
   color: #EADED8;
 }
@@ -31,6 +50,14 @@
 .hand-hover {
   cursor: pointer;
   user-select: none;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.inline {
+  display: inline;
 }
 
 /* Common helpers */
@@ -219,6 +246,9 @@
 .p-l-10 {
   padding-left: 10px !important;
 }
+.p-l-15 {
+  padding-left: 15px !important;
+}
 .p-l-20 {
   padding-left: 20px !important;
 }
@@ -236,6 +266,9 @@
 }
 .p-r-10 {
   padding-right: 10px !important;
+}
+.p-r-15 {
+  padding-right: 15px !important;
 }
 .p-r-20 {
   padding-right: 20px !important;
