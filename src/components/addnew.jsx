@@ -3,6 +3,8 @@ import { Row, Col, Input, Button, Collection, CollectionItem } from 'react-mater
 import { withRouter } from 'react-router';
 import $ from 'jquery';
 import uuidv4 from 'uuid/v4';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const InitialState = {
 	newRecipe : {},
@@ -107,9 +109,14 @@ class AddNew extends Component {
 		// TODO : validation of data
 		this.props.recipes.push(this.state.newRecipe);
 		console.log('this.props.recipes',this.props.recipes);
+		toast.success("Successfully Registered");
+
+		setTimeout(()=>{
+			push(`/`);
+		},4000);
 
 		// Redirect After successful save
-		push(`/view-recipe/${newRecipe.id}`);
+		
 	}
 
 	render() {
@@ -186,6 +193,14 @@ class AddNew extends Component {
 						</div>
 					</Col>
 				</Row>
+				<ToastContainer 
+					position="top-right"
+					autoClose={5000}
+					hideProgressBar={true}
+					newestOnTop={false}
+					closeOnClick
+					pauseOnHover
+				/>
 			</div>
 		);
 	}
