@@ -1,5 +1,8 @@
 
 /* Pre defined Color Helpers */
+.bg-white {
+  background-color: white;
+}
 .white-smoke {
   color: #F7F6F6 ;
 }

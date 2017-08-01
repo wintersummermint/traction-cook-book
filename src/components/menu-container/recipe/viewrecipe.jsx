@@ -4,6 +4,7 @@ import { Row, Col, Icon, MediaBox, Button } from 'react-materialize';
 import Rating from './rating';
 import uuidv4 from 'uuid/v4';
 import SaveStatus from './savestatus';
+import Comments from './comments';
 
 class ViewRecipe extends Component {
 
@@ -84,7 +85,7 @@ class ViewRecipe extends Component {
 				</Col>
 				
 			</Row>	
-
+			<Comments recipe={recipe}/>
 			</div>
 		);
 	}

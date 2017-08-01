@@ -163,3 +163,7 @@ textarea.materialize-textarea{
 	position: relative;
 	top: 25px;
 }
+
+.comment-section {
+	min-height: 100px;
+}
