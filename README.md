@@ -15,6 +15,14 @@ npm install or yarn install
 npm start 
 
 ```
+
+## Mockups / Screens 
+
+![image](http://i.imgur.com/UJyuwKL.png)
+![image](http://i.imgur.com/DlgbvUK.png)
+![image](http://i.imgur.com/OXUEsXj.png)
+![image](http://i.imgur.com/DfqWPYB.png)
+
 ## Live Demo 
 
 [https://traction-cook-book.herokuapp.com/](https://traction-cook-book.herokuapp.com/)
