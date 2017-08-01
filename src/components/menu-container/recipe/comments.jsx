@@ -71,7 +71,7 @@ class Comments extends Component {
 						{comments}
 					</Collection>
 				</Col>
-				<Col m={12} s={12}>
+				<Col m={11} s={11}>
 					<Input s={10} className="comment-field" placeholder="Add Comment" onChange={(evt) =>  this.commentHandler(evt)} onKeyPress={evt => this.submitComment(evt)} />
 					<Button className="btn-block inline col s2 m-t-10 bg-d-juan waves-effect waves-light" onClick={this.addCommentHandler.bind(this)} >Add</Button>
 				</Col>
