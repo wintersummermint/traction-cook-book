@@ -167,3 +167,9 @@ textarea.materialize-textarea{
 .comments-section {
 	min-height: 100px !important;
 }
+
+.hamburger-icon {
+	padding-left: 15px;
+	padding-top: 15px;
+	cursor: pointer;
+}

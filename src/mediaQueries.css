@@ -1,7 +1,9 @@
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 993px) {
-
+	.btn-floating {
+		display: none;
+	}
 }
 
 /* Medium Devices, Desktops */
@@ -17,7 +19,18 @@
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
+	.side-bar {
+		display: none;
+		width: 100px;
+	}
 
+	.dynamic-container {
+		width: 100%;
+		padding-left: 0px;
+	}
+	.dynamic-container > .row .m-t-20 > {
+		margin-top: 0px;
+	}
 
 }
 

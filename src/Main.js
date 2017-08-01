@@ -8,6 +8,8 @@ import Edit from './components/edit';
 import Saved from './components/saved';
 import AddNew from './components/addnew';
 import { Recipes } from './data/recipes.js';
+import $ from 'jquery';
+
 
 export const Main = props => (
 	<div className="main">

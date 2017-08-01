@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import SideBar from './SideBar';
 import _ from 'underscore';
+import $ from 'jquery';
+import { Row, Col, Icon, Button } from 'react-materialize';
+import { Link } from 'react-router-dom';
 
 import {
   BrowserRouter as Router,
@@ -56,10 +59,22 @@ class RenderApp extends Component {
     this.setState({ recipes });
   }
 
+  toggleSideBar(evt) {
+
+  }
+
   render() { 
     return (
       <Router history={newHistory}>
       <Main>
+        <div className="show-on-small hamburger-icon">
+          <Button floating fab='vertical' icon='menu' className='bg-my-pink show-on-small' large style={{bottom: '45px', right: '24px'}}>
+            <Link to={`/`}  ><Button floating icon='view_list' className='red'/></Link>
+            <Link to={`/edit`}  ><Button floating icon='edit' className='yellow darken-1'/></Link>
+            <Link to={`/saved`}  ><Button floating icon='bookmark_border' className='green'/></Link>
+            <Link to={`/add-new`}  ><Button floating icon='add_circle_outline' className='blue'/></Link>
+          </Button>
+        </div>
         <Switch>
           <Route exact path="/" render={() => <Home recipes={this.state.recipes} appHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)}/> } />
           <Route path="/edit" render={() => <Edit recipes={this.state.recipes} appHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)} /> } />
