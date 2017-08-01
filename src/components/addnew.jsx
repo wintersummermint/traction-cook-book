@@ -87,10 +87,12 @@ class AddNew extends Component {
 		let ingredients = this.state.ingredients;
 		
 		// Add Ingredient
-		ingredients.push(this.state.ingredient);
+		if (this.state.ingredient !== "") {
+			ingredients.push(this.state.ingredient);
 
-		this.setState({ ingredients });
-		this.setState({ ingredient : '' });
+			this.setState({ ingredients });
+			this.setState({ ingredient : '' });
+		}
 		
 	}
 
@@ -110,11 +112,14 @@ class AddNew extends Component {
 		let newRecipe = this.state.newRecipe;
 		let instructions = this.state.instructions;
 
-		// Add Instruction
-		instructions.push(this.state.instruction);
+		if (this.state.instruction !== "") {
+			// Add Instruction
+			instructions.push(this.state.instruction);
 
-		this.setState({ instructions });
-		this.setState({ instruction : '' });
+			this.setState({ instructions });
+			this.setState({ instruction : '' });
+		}
+		
 	}
 
 	deleteIngredient(evt, index) {
