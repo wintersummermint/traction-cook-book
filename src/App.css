@@ -131,3 +131,11 @@ textarea.materialize-textarea{
 .collection > .badge {
 	float : right;
 }
+
+.edit-field-title {
+	border-bottom: none !important;
+	box-shadow: none !important;
+	font-size : 34.2px !important;
+	padding-left : none;
+
+}

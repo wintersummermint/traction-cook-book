@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon, MediaBox } from 'react-materialize';
+import { Row, Col, Icon, MediaBox, Button, Input } from 'react-materialize';
 import Rating from './rating';
 import uuidv4 from 'uuid/v4';
 import SaveStatus from './savestatus';
@@ -34,7 +34,7 @@ class EditRecipe extends Component {
 			<div>
 				<Row className="m-t-30">
 					<Col m={10}>
-						<h4 className="my-pink p-l-10">{recipe.title}</h4>
+						<Input s={12} className="my-pink p-l-10 edit-field-title" value={recipe.title} validate />
 						<div className="p-l-0">
 							<Rating rating={recipe.rating}/>
 						</div>
@@ -73,7 +73,10 @@ class EditRecipe extends Component {
 							{instructions}
 						</p>
 					</Col>
-				</Row>		
+				</Row>	
+				<Row>
+					<Button className="inline m-t-10 bg-d-juan waves-effect waves-light">Save Edit Recipe</Button>
+				</Row>	
 			</div>
 		);
 	}
