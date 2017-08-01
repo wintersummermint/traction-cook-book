@@ -123,3 +123,11 @@ body {
 textarea.materialize-textarea{
 	height: 6rem;
 }
+
+.collection-item {
+	float: left;
+}
+
+.collection > .badge {
+	float : right;
+}

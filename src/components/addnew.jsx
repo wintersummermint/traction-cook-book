@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Input, Button, Collection, CollectionItem, MediaBox } from 'react-materialize';
+import { Row, Col, Input, Button, Collection, CollectionItem, MediaBox, Badge, Icon } from 'react-materialize';
 import { withRouter } from 'react-router';
 import $ from 'jquery';
 import uuidv4 from 'uuid/v4';
@@ -117,6 +117,20 @@ class AddNew extends Component {
 		this.setState({ instruction : '' });
 	}
 
+	deleteIngredient(evt, index) {
+		let ingredients = this.state.ingredients;
+		ingredients.splice(index, 1);
+		this.setState({ ingredients });
+	}
+
+	deleteInstruction(evt, index) {
+		let instructions = this.state.instructions;
+		instructions.splice(index, 1);
+		this.setState({ instructions });
+	}
+
+	
+
 	saveNewRecipe() {
 		const { history: { push } } = this.props;
 		let newRecipe = this.state.newRecipe;
@@ -189,12 +203,20 @@ class AddNew extends Component {
 
 	render() {
 
-		const Ingredients = this.state.ingredients.map((ingredient)=>{
-			return <CollectionItem key={uuidv4()}>{ingredient}</CollectionItem>
+		const Ingredients = this.state.ingredients.map((ingredient, index)=>{
+			return <CollectionItem className="left w-100" key={uuidv4()}>
+						<div className="left w-80">
+						{ingredient}
+						</div><Badge  className="right" onClick={ (evt) => this.deleteIngredient(evt, index)} ><Icon className="hand-hover">close</Icon></Badge>
+					</CollectionItem>
 		});
 
 		const Instructions = this.state.instructions.map((instruction, index)=>{
-			return <CollectionItem key={uuidv4()}>{index + 1}. {instruction}</CollectionItem>
+			return <CollectionItem className="left w-100" key={uuidv4()}>
+					<div className="left w-80">
+					{index + 1}. {instruction} 
+					</div><Badge  className="right"><Icon className="hand-hover" onClick={ (evt) => this.deleteInstruction(evt, index)}>close</Icon></Badge>	
+					</CollectionItem>
 		});
 
 		return (
