@@ -18,23 +18,51 @@ class EditRecipe extends Component {
 		this.props.setHandleSaveRecipe(recipe_id);
 	}
 
+	titleHandler(evt) {
+		let recipe = this.state.recipe;
+		recipe.title = evt.target.value;
+
+		this.setState({ recipe });
+	}
+
+	descriptionHandler(evt) {
+		let recipe = this.state.recipe;
+		recipe.description = evt.target.value;
+
+		this.setState({ recipe });
+	}
+
+	onDeleteIngredient(evt,index) {
+		let recipe = this.state.recipe;
+		recipe.ingredients.splice(index, 1);
+		console.log('deleted?');
+		this.setState({ recipe });
+	}
+
+	onDeleteInstruction(evt,index) {
+		let recipe = this.state.recipe;
+		recipe.instructions.splice(index, 1);
+
+		this.setState({ recipe });
+	}
+
 	render() {
 
 		let recipe = this.state.recipe;
 		let is_saved = recipe.saved ? <Icon className="saved-icon medium hand-hover">bookmark</Icon> : <Icon className="saved-icon medium hand-hover">bookmark_border</Icon>;
-		let ingredients = recipe.ingredients.map((ingredient)=> {
-			return <p key={uuidv4()}>{`• ${ingredient}`}</p>;
+		let ingredients = recipe.ingredients.map((ingredient, index)=> {
+			return <div>• <input key={uuidv4()} defaultValue={ingredient} className="w-80 edit-ingredient-field m-b-0" /><Icon className="bitter-sweet hand-hover" onClick={(evt)=>this.onDeleteIngredient(evt, index)}>close</Icon></div>;
 		});
 
 		let instructions = recipe.instructions.map((instruction,index)=> {
-			return <p key={uuidv4()}>{`${index + 1}. ${instruction}`}</p>;
+			return <div>{index + 1}. <textarea key={uuidv4()} defaultValue={instruction} className="w-80 edit-textarea m-b-0"></textarea><Icon className="bitter-sweet hand-hover" onClick={(evt)=>this.onDeleteInstruction(evt, index)}>close</Icon></div>;
 		});
 
 		return (
 			<div>
 				<Row className="m-t-30">
 					<Col m={10}>
-						<Input s={12} className="my-pink p-l-10 edit-field-title" value={recipe.title} validate />
+						<Input className="my-pink edit-field-title" defaultValue={recipe.title} validate onChange={(evt) => this.titleHandler(evt)}/><Icon className="my-pink edit-icon-title">edit</Icon>
 						<div className="p-l-0">
 							<Rating rating={recipe.rating}/>
 						</div>
@@ -55,10 +83,8 @@ class EditRecipe extends Component {
 
 				<Row>
 					<Col m={11} className="p-l-20 m-t-10 semi-black readable">
-						<b>Description</b>
-						<p>
-							{recipe.description}
-						</p>
+						<b>Description <Icon className="description-edit-icon">edit</Icon></b>
+						<textarea rows="6" defaultValue={recipe.description} className="edit-textarea" onChange={(evt)=>this.descriptionHandler(evt)}></textarea>
 					</Col>
 					<Col m={11} className="p-l-20 m-t-10 semi-black readable">
 						<b>List of Ingredients</b>
@@ -76,6 +102,7 @@ class EditRecipe extends Component {
 				</Row>	
 				<Row>
 					<Button className="inline m-t-10 bg-d-juan waves-effect waves-light">Save Edit Recipe</Button>
+					<Button className="inline m-t-10 bg-bitter-sweet waves-effect waves-light m-l-20">Delete Recipe</Button>
 				</Row>	
 			</div>
 		);

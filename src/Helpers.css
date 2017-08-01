@@ -31,6 +31,10 @@
   background-color : #EF6161 ;
 }
 
+.bg-bitter-sweet:hover, .bg-bitter-sweet:focus, .bg-bitter-sweet:active {
+  background-color : #BF4E4F ;
+  border-color : #BF4E4F ;
+}
 .galley {
   color : #D7D6D5; 
 }
