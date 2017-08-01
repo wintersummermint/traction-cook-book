@@ -164,6 +164,6 @@ textarea.materialize-textarea{
 	top: 25px;
 }
 
-.comment-section {
-	min-height: 100px;
+.comments-section {
+	min-height: 100px !important;
 }
