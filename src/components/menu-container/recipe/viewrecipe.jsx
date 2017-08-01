@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon, MediaBox } from 'react-materialize';
+import { Link } from 'react-router-dom';
+import { Row, Col, Icon, MediaBox, Button } from 'react-materialize';
 import Rating from './rating';
 import uuidv4 from 'uuid/v4';
 import SaveStatus from './savestatus';
@@ -75,7 +76,15 @@ class ViewRecipe extends Component {
 					</p>
 				</Col>
 			</Row>
-			
+			<Row className="m-t-60 m-b-60">
+				<Col m={11} s={11}>
+					<Col m={11} s={11}>
+						<Link to={`/edit-recipe/${recipe.id}`}><Button className="inline m-t-10 bg-d-juan waves-effect waves-light">Edit Recipe</Button></Link>
+					</Col>
+				</Col>
+				
+			</Row>	
+
 			</div>
 		);
 	}

@@ -133,7 +133,7 @@ textarea.materialize-textarea{
 }
 
 .edit-field-title {
-	border-bottom: none !important;
+	border-bottom: 1px solid #DE907F !important;
 	box-shadow: none !important;
 	font-size : 34.2px !important;
 	padding-left : none;
@@ -141,14 +141,18 @@ textarea.materialize-textarea{
 }
 
 .edit-ingredient-field {
-	border-bottom: none !important;
+	border-bottom: 1px solid #9e9e9e !important;
 	box-shadow: none !important;
 }
 
 .edit-textarea {
-	border :none;
+	border: none;
+	border-bottom: 1px solid #9e9e9e !important;
 	user-select: none;
-	resize :none;
+	resize :vertical;
+	white-space: normal;
+    vertical-align:middle;
+    min-height: 50px;
 }
 
 .description-edit-icon {
