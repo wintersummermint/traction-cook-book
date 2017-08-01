@@ -143,6 +143,7 @@ class AddNew extends Component {
 		newRecipe.instructions = this.state.instructions;
 		newRecipe.rating = 5; // Default Rating for now
 		newRecipe.saved = false;
+		newRecipe.comments = [];
 		newRecipe.id = uuidv4();
 
 		this.setState({ newRecipe });
@@ -151,7 +152,6 @@ class AddNew extends Component {
 
 		if (validated) {
 			this.props.recipes.push(this.state.newRecipe);
-			
 
 			toast.success('Recipe Added Succesfully!');
 
