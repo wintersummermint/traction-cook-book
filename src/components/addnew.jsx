@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Input, Button, Collection, CollectionItem } from 'react-materialize';
+import { Row, Col, Input, Button, Collection, CollectionItem, MediaBox } from 'react-materialize';
 import { withRouter } from 'react-router';
 import $ from 'jquery';
 import uuidv4 from 'uuid/v4';
@@ -202,7 +202,11 @@ class AddNew extends Component {
 				<div className="center-align m-t-20">
 					<h4 className="my-pink">Add Recipe</h4>
 				</div>
-				
+				<Row className="m-t-20 m-b-20">
+					<Col m={12} s={12} className="center-align">
+						<img src={this.state.newRecipe.imageUrl} className="center-align" height={(this.state.newRecipe.imageUrl ? '450' : '')}/>
+					</Col>
+				</Row>
 				<Row className="m-t-40">
 					<Col m={12} s={12}>
 						<Input s={12} placeholder="Recipe Name" validate onChange={evt =>  this.recipeNameHandler(evt)} />
