@@ -82,10 +82,10 @@ class RenderApp extends Component {
             const recipe = _.find(Recipes, (current) => current.id == id); // Find matching id for recipe on url
 
             if (!recipe) {
-              return <EditRecipe recipe={recipe}/> /* <NotFoundPage staticContext={staticContext} /> */;
+              return <EditRecipe recipe={recipe} recipes={this.state.recipes}/> /* <NotFoundPage staticContext={staticContext} /> */;
             }
 
-            return <EditRecipe recipe={recipe} setHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)}/>;
+            return <EditRecipe recipe={recipe} recipes={this.state.recipes} setHandleSaveRecipe={this.appSetHandleSaveRecipe.bind(this)}/>;
           }} />
 
         </Switch>

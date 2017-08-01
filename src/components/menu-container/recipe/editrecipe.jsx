@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon, MediaBox, Button, Input } from 'react-materialize';
+import { Row, Col, Icon, MediaBox, Button, Input, Modal } from 'react-materialize';
 import Rating from './rating';
 import uuidv4 from 'uuid/v4';
 import SaveStatus from './savestatus';
 import { ToastContainer, toast } from 'react-toastify';
+import { withRouter } from 'react-router';
+import $ from 'jquery';
 
 
 class EditRecipe extends Component {
@@ -13,6 +15,7 @@ class EditRecipe extends Component {
 
 		this.state = {
 			recipe : props.recipe,
+			recipes : props.recipes,
 			instruction : '',
 			ingredient : ''
 		}
@@ -73,6 +76,28 @@ class EditRecipe extends Component {
 		toast.success('Recipe Edit Saved');
 	}
 
+	deleteRecipe(evt, id) {
+		const { history: { push } } = this.props;
+		let recipes = this.state.recipes;
+		console.log('recipes',this.props);
+		let index = recipes.indexOf(id)
+		recipes.splice(index, 1);
+
+		$('.modal').removeClass('open');
+		$('.modal-overlay').css({ 'display' : 'none'});
+		$('.modal').css({'z-index': '1003', 'display' : 'none', 'opacity' : '0', 'bottom' : '-100%'});
+		
+		
+		this.setState({ recipes: recipes }, ()=>{
+			toast.success('Recipe Edit Saved');
+
+			setTimeout(function(){
+				push('/');
+			},1500);
+			
+		});
+	}
+
 	render() {
 
 		let recipe = this.state.recipe;
@@ -131,7 +156,14 @@ class EditRecipe extends Component {
 					<Col m={11} s={11}>
 						<Col m={11} s={11}>
 							{/* <Button className="inline m-t-10 bg-d-juan waves-effect waves-light" onClick={(evt)=>this.saveEditedRecipe(evt)}>Save Edit Recipe</Button> Use Auto save for now */}
-							<Button className="inline m-t-10 bg-bitter-sweet waves-effect waves-light m-l-20 right">Delete Recipe</Button>
+							<Modal
+								bottomSheet
+								trigger={
+									<Button className="inline m-t-10 bg-bitter-sweet waves-effect waves-light m-l-20 right">Delete Recipe</Button>
+								}>
+								Are you sure you want to delete this recipe? {<Button className="inline m-t-10 bg-bitter-sweet waves-effect waves-light m-l-20 right" onClick={(evt)=>this.deleteRecipe(evt, recipe.id)}>Yes, Delete</Button>}
+							</Modal>
+							
 						</Col>
 					</Col>
 					
@@ -149,4 +181,4 @@ class EditRecipe extends Component {
 	}
 }
 
-export default EditRecipe;
+export default withRouter(EditRecipe);
