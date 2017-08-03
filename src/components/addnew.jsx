@@ -242,7 +242,7 @@ class AddNew extends Component {
 				</div>
 				<Row className="m-t-20 m-b-20">
 					<Col m={12} s={12} className="center-align">
-						<img src={this.state.newRecipe.imageUrl} className="center-align" height={(this.state.newRecipe.imageUrl ? '450' : '')}/>
+						<img src={this.state.newRecipe.imageUrl ? this.state.newRecipe.imageUrl : '' } className="center-align" height={(this.state.newRecipe.imageUrl ? '450' : '')}/>
 					</Col>
 				</Row>
 				<Row className="m-t-40">
