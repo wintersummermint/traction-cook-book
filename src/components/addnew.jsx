@@ -3,6 +3,7 @@ import { Row, Col, Input, Button, Collection, CollectionItem, MediaBox, Badge, I
 import { withRouter } from 'react-router';
 import $ from 'jquery';
 import uuidv4 from 'uuid/v4';
+import randomID from 'random-id';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -42,6 +43,16 @@ class AddNew extends Component {
 	          instructions: []
 	        });
 	    });
+
+
+	    this.setState({
+	    	newRecipe : {}
+	    }, function() { // called by React after the state is updated
+	    	this.setState({
+	    	  newRecipe: {}
+	    	});
+	    });
+
 	 }
 
 	recipeNameHandler(evt) {
@@ -137,6 +148,7 @@ class AddNew extends Component {
 	
 
 	saveNewRecipe() {
+
 		const { history: { push } } = this.props;
 		let newRecipe = this.state.newRecipe;
 		newRecipe.ingredients = this.state.ingredients;
@@ -144,15 +156,16 @@ class AddNew extends Component {
 		newRecipe.rating = 5; // Default Rating for now
 		newRecipe.saved = false;
 		newRecipe.comments = [];
-		newRecipe.id = uuidv4();
+		newRecipe.id = randomID() + '1';
 
 		this.setState({ newRecipe });
+		console.log('newRecipe new', this.state.newRecipe);
 
 		let validated = this.validateForms(newRecipe);
 
 		if (validated) {
 			this.props.recipes.push(this.state.newRecipe);
-
+			
 			toast.success('Recipe Added Succesfully!');
 
 			let self = this;
@@ -161,8 +174,6 @@ class AddNew extends Component {
 				// Clear Array of Instuctions and Ingredients
 				self.setState({ ingredients : []}, ()=>{
 					self.setState({ instructions : []}, ()=>{
-						console.log('this.props.recipes',this.props.recipes);
-						console.log('this.states',this.state);
 						push(`/`);
 					});
 				});
