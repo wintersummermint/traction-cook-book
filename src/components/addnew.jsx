@@ -80,17 +80,13 @@ class AddNew extends Component {
 	}
 
 	ingredientHandler(evt) {
-		if (evt.target.value !== "") {
-			let ingredient = evt.target.value;
-			this.setState({ ingredient });
-		}
+		let ingredient = evt.target.value;
+		this.setState({ ingredient });
 	}
 
-	instructionHandler(evt) {;
-		if (evt.target.value !== "") {
-			let instruction = evt.target.value;
-			this.setState({ instruction });
-		}
+	instructionHandler(evt) {
+		let instruction = evt.target.value;
+		this.setState({ instruction });
 	}
 
 	addIngredientHandler() {
@@ -108,13 +104,13 @@ class AddNew extends Component {
 	}
 
 	submitIngredient(evt) {
-		if(evt.key == 'Enter'){
+		if(evt.key == 'Enter' && this.state.ingredient != ''){
 		    this.addIngredientHandler(evt);
 		}
 	}
 
 	submitInstruction(evt) {
-		if(evt.key == 'Enter'){
+		if(evt.key == 'Enter'  && this.state.instruction != ''){
 		    this.addInstructionHandler(evt);
 		}
 	}

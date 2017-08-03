@@ -37,8 +37,8 @@ class Comments extends Component {
 	addCommentHandler() {
 		let recipe = this.state.recipe;
 		let comments = this.state.comments;
-
-		if (this.state.comment !== "") {
+		console.log(this.state.comment);
+		if (this.state.comment.comment && this.state.comment.comment.length > 0) {
 
 			$('.comment-field').val('');
 			
