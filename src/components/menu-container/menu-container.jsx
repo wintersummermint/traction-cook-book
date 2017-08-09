@@ -18,7 +18,7 @@ class MenuContainer extends Component {
 
 		const recipeList = this.props.recipes.map(recipe => {
 			return (
-				<Col s={12} m={4} key={recipe.id}>
+				<Col s={12} m={6} l={4} key={recipe.id}>
 					<div className={this.state.isEditable}>
 						<Recipe recipe={recipe} setHandleSaveRecipe={this.setHandleSaveRecipe.bind(this)} isEditable={this.state.isEditable}/>
 					</div>

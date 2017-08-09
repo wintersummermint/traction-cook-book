@@ -44,7 +44,7 @@ class Rating extends Component {
 		let renderEdit = <input type="number" defaultValue={this.props.rating} min="0" max="5" className="editStar" onBlur={(evt)=>this.saveRating(evt)}/>;
 		
 		return (
-			<Col className="m-t-10 m-b-10" s={11} >
+			<Col className="m-t-10 m-b-10" s={11} m={9}>
 				{this.state.is_edit_rating && this.props.isEditable == true ? renderEdit : defaultRender }
 			</Col>
 		);

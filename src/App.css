@@ -177,3 +177,7 @@ textarea.materialize-textarea{
 .editStar {
 	width: 60px !important;
 }
+
+.recipe-card > div.card-content > div > div.col.s1.m1 > div {
+	margin-top: 10px;
+} 

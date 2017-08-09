@@ -8,7 +8,15 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-
+	.editable-rating > .star {
+		font-size: 18px;
+	}
+	.recipe-description {
+		height: 100px;
+	}
+	.recipe-card > .card-content {
+		max-height: 100% !important;
+	}
 }
 
 /* Small Devices, Tablets */
@@ -33,6 +41,12 @@
 	}
 	.dynamic-container > .row .m-t-20 > {
 		margin-top: 0px;
+	}
+	.recipe-card > div.card-content > div > div.col.s1.m1 > div {
+		margin-top: 0px !important;
+	} 
+	.recipe-description {
+		height: 85px;
 	}
 
 }
