@@ -25,7 +25,7 @@ class Rating extends Component {
 	}
 
 	render() {
-		
+
 		const star = this.props.rating;
 		const max_star = 5;
 		const starRender = [];
@@ -40,7 +40,7 @@ class Rating extends Component {
 			starRender.push(<Icon className="star" key={uuidv4()}>star_outline</Icon>)
 		}
 
-		let defaultRender = <div className="editable-rating" onClick={(evt)=> this.editRating(evt)}>{ starRender } <Icon className="description-edit-icon my-pink">edit</Icon> </div>;
+		let defaultRender = <div className="editable-rating" onClick={(evt)=> this.editRating(evt)}>{ starRender } {this.props.isEditable == true ? <Icon className="description-edit-icon my-pink">edit</Icon>  : ''}</div>;
 		let renderEdit = <input type="number" defaultValue={this.props.rating} min="0" max="5" className="editStar" onBlur={(evt)=>this.saveRating(evt)}/>;
 		
 		return (
