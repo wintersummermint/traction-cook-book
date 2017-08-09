@@ -7,11 +7,17 @@ class Rating extends Component {
 	render() {
 		
 		const star = this.props.rating;
+		const max_star = 5;
 		const starRender = [];
 
 		// Count how many stars will show base on rating
 		for (var i = star - 1; i >= 0; i--) {
 			starRender.push(<Icon className="star" key={uuidv4()}>star</Icon>)
+		}
+
+		// Count how many stars remaining
+		for (var i = max_star - star; i > 0; i--) {
+			starRender.push(<Icon className="star" key={uuidv4()}>star_outline</Icon>)
 		}
 
 		return (
