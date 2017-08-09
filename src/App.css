@@ -173,3 +173,7 @@ textarea.materialize-textarea{
 	padding-top: 15px;
 	cursor: pointer;
 }
+
+.editStar {
+	width: 60px !important;
+}

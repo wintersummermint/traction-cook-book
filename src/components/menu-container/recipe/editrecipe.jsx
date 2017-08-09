@@ -71,6 +71,14 @@ class EditRecipe extends Component {
 		toast.success('Recipe Edit Saved');
 	}
 
+	handleSaveRating(rating) {
+		let recipe = this.state.recipe;
+		recipe.rating = rating;
+
+		this.setState({ recipe });
+		toast.success('Recipe Edit Saved');
+	}
+
 	saveChanges(evt) {
 		console.log('recipe saved :', this.state.recipe);
 		toast.success('Recipe Edit Saved');
@@ -116,7 +124,7 @@ class EditRecipe extends Component {
 					<Col m={10}>
 						<Input className="my-pink edit-field-title" defaultValue={recipe.title} validate onChange={(evt) => this.titleHandler(evt)} onBlur={(evt) => this.saveChanges(evt)}/><Icon className="my-pink edit-icon-title">edit</Icon>
 						<div className="p-l-0">
-							<Rating rating={recipe.rating}/>
+							<Rating rating={recipe.rating} isEditable={true} saveRatingRecipe={this.handleSaveRating.bind(this)}/>
 						</div>
 					</Col>
 					<Col m={1}>
