@@ -1,6 +1,6 @@
 A Demo Mini Project Cook Book for Traction Tools
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Demo is on Heroku : [https://traction-cook-book.herokuapp.com/](https://traction-cook-book.herokuapp.com/)
 
 ## Installing
 
@@ -41,4 +41,4 @@ NPM - 5+
 
 ## Authors
 
-* **Nixon Galario ** - *Initial work and primary developer* - [PurpleBooth](https://github.com/wintersummermint)
+**Nixon Galario** - *Initial work and primary developer* - [https://github.com/wintersummermint](https://github.com/wintersummermint)
