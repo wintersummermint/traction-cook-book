@@ -5,6 +5,10 @@ import Rating from './rating';
 import uuidv4 from 'uuid/v4';
 import SaveStatus from './savestatus';
 import Comments from './comments';
+import moment from 'moment';
+
+var jstz = require('jstimezonedetect');
+var icalToolkit = require('ical-toolkit');
 
 class ViewRecipe extends Component {
 
@@ -16,6 +20,51 @@ class ViewRecipe extends Component {
 		}
 	}
 
+	triggerExportCal() {
+
+		var date = new Date();
+		//Create a builder 
+		var builder = icalToolkit.createIcsFileBuilder();
+		builder.spacers = true; //Add space in ICS file, better human reading. Default: true 
+		builder.NEWLINE_CHAR = '\r\n'; //Newline char to use. 
+		builder.throwError = false; //If true throws errors, else returns error when you do .toString() to generate the file contents. 
+		builder.ignoreTZIDMismatch = true; //If TZID is invalid, ignore or not to ignore! 
+		builder.calname = `Recipe Schedules`;
+		builder.timezone = jstz.determine().name();
+		builder.tzid = jstz.determine().name();
+		builder.method = 'REQUEST';
+
+		builder.events.push({
+		 
+		  //Event start time, Required: type Date() 
+		  start: new Date(),
+		  
+		  //Event end time, Required: type Date() 
+		  end: moment().add(1,'hours')._d,
+		  
+		  //transp. Will add TRANSP:OPAQUE to block calendar. 
+		  transp: 'OPAQUE',
+		  
+		  //Event summary, Required: type String 
+		  summary: `Cook ${this.state.recipe.title}!`,
+		  description: `This is a scheduled cooking alert : ${this.state.recipe.description}`,
+
+		  //Creation timestamp, Optional. 
+		  stamp: new Date(),
+
+		  //What to do on addition 
+		  method: 'PUBLISH',
+		  
+		  //Status of event 
+		  status: 'CONFIRMED',
+		  
+		  //Url for event on core application, Optional. 
+		  url: window.location.href
+		});
+
+		var icsFileContent = builder.toString();
+		window.open("data:text/calendar;charset=utf8," + escape(icsFileContent));
+	}
 
 	handleSaveRecipe(recipe_id) {
 		this.props.setHandleSaveRecipe(recipe_id);
@@ -81,6 +130,7 @@ class ViewRecipe extends Component {
 				<Col m={11} s={11}>
 					<Col m={11} s={11}>
 						<Link to={`/edit-recipe/${recipe.id}`}><Button className="inline m-t-10 bg-d-juan waves-effect waves-light">Edit Recipe</Button></Link>
+						<Button className="inline m-t-10 bg-d-juan m-l-10 waves-effect waves-light" onClick={(evt)=>{this.triggerExportCal(evt)}}>Make Calendar Schedule</Button>
 					</Col>
 				</Col>
 				

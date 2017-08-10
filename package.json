@@ -5,7 +5,10 @@
   "dependencies": {
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-jsx-a11y": "^6.0.2",
+    "ical-toolkit": "^1.0.9",
     "jquery": "^3.2.1",
+    "jstimezonedetect": "^1.0.6",
+    "moment": "^2.18.1",
     "random-id": "0.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
