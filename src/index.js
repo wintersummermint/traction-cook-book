@@ -6,6 +6,7 @@ import RenderApp from './App';
 import './App.css';
 import './Helpers.css';
 import './mediaQueries.css';
+import './datetime.css';
 
 ReactDOM.render(<RenderApp />, document.getElementById('root'));
 

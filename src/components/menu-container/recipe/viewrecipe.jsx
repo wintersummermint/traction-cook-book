@@ -6,6 +6,7 @@ import uuidv4 from 'uuid/v4';
 import SaveStatus from './savestatus';
 import Comments from './comments';
 import moment from 'moment';
+import Datetime from 'react-datetime';
 
 var jstz = require('jstimezonedetect');
 var icalToolkit = require('ical-toolkit');
@@ -16,7 +17,8 @@ class ViewRecipe extends Component {
 		super(props);
 
 		this.state = {
-			recipe : props.recipe
+			recipe : props.recipe,
+			recipeSched : moment()._d
 		}
 	}
 
@@ -37,10 +39,10 @@ class ViewRecipe extends Component {
 		builder.events.push({
 		 
 		  //Event start time, Required: type Date() 
-		  start: new Date(),
+		  start: moment(this.state.recipeSched)._d,
 		  
 		  //Event end time, Required: type Date() 
-		  end: moment().add(1,'hours')._d,
+		  end: moment(this.state.recipeSched).add(1,'hours')._d,
 		  
 		  //transp. Will add TRANSP:OPAQUE to block calendar. 
 		  transp: 'OPAQUE',
@@ -63,11 +65,16 @@ class ViewRecipe extends Component {
 		});
 
 		var icsFileContent = builder.toString();
+		console.log(builder);
 		window.open("data:text/calendar;charset=utf8," + escape(icsFileContent));
 	}
 
 	handleSaveRecipe(recipe_id) {
 		this.props.setHandleSaveRecipe(recipe_id);
+	}
+
+	dateTimeChanged(date) {
+		this.setState({ recipeSched : moment(date)._d });
 	}
 
 	render() {
@@ -130,7 +137,9 @@ class ViewRecipe extends Component {
 				<Col m={11} s={11}>
 					<Col m={11} s={11}>
 						<Link to={`/edit-recipe/${recipe.id}`}><Button className="inline m-t-10 bg-d-juan waves-effect waves-light">Edit Recipe</Button></Link>
-						<Button className="inline m-t-10 bg-d-juan m-l-10 waves-effect waves-light" onClick={(evt)=>{this.triggerExportCal(evt)}}>Make Calendar Schedule</Button>
+						<h5 className="m-t-60">Schedule Cooking</h5>
+						<Datetime defaultValue={moment().format('YYYY-MM-DD HH:mm a')} onChange={(evt)=>this.dateTimeChanged(evt)} dateFormat="YYYY-MM-DD"/>
+						<Button className="inline m-t-10 bg-d-juan waves-effect waves-light" onClick={(evt)=>{this.triggerExportCal(evt)}}>Export Calendar Schedule</Button>
 					</Col>
 				</Col>
 				
