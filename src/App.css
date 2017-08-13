@@ -185,3 +185,7 @@ textarea.materialize-textarea{
 #root > div > div.dynamic-container > div:nth-child(2) > div.row.m-t-60.m-b-60 > div > div > div > input {
 	width: 200px;
 }
+
+.editable-rating {
+	cursor: pointer;
+}
